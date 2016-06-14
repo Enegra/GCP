@@ -19,18 +19,31 @@ public class Specimen {
 
     public Specimen(Graph graph, int numberOfColours){
         this.graph=graph;
-        colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         this.numberOfColours=numberOfColours;
         numberOfNodes=graph.getNumberOfNodes();
+        colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         colourSpecimen();
     }
 
     public Specimen(Graph graph){
         this.graph=graph;
-        colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         numberOfColours = getNumberOfColours();
         numberOfNodes=graph.getNumberOfNodes();
+        colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         colourSpecimen();
+    }
+
+    public Specimen(Specimen parentOne, Specimen parentTwo){
+        this.graph = parentOne.graph;
+        this.numberOfColours = parentOne.numberOfColours;
+        this.numberOfNodes = parentOne.numberOfNodes;
+        colours = new ArrayList<Integer>(numberOfNodes);
+        for (int i=0; i<numberOfNodes/2; i++){
+            this.colours.add(parentOne.getColour(i));
+        }
+        for (int i=numberOfNodes/2; i<numberOfNodes; i++){
+            this.colours.add(parentTwo.getColour(i));
+        }
     }
 
     public void colourSpecimen(){

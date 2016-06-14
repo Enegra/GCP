@@ -16,6 +16,12 @@ public class Main {
         Evaluator evaluator = new Evaluator();
         ArrayList<Integer> scores = evaluator.evaluate(population);
         System.out.println(scores);
+        Selector selector = new Selector();
+        population = selector.select(population, scores, 3);
+        System.out.println(population);
+        Crosser crosser = new Crosser();
+        crosser.cross(population, 30, 0.7);
+        System.out.println(population);
 
     }
 }
