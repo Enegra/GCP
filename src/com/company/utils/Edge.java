@@ -26,6 +26,7 @@ public class Edge {
         return weight;
     }
 
+
     @Override
     public String toString(){
         return "Begin node: " + beginNode + ", End node: " + endNode + ", Weight: " + weight;

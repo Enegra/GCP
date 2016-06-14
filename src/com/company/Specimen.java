@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.utils.Edge;
+import com.company.utils.Node;
 import com.company.utils.ValueFinder;
 
 import java.util.ArrayList;
@@ -54,6 +55,41 @@ public class Specimen {
 
     public int getColour(int index){
         return colours.get(index);
+    }
+
+    public Node getNode(int index)
+    {
+        return graph.getNodes().get(index);
+    }
+
+    public Node findNode(int indexValue){
+        for (Node node : graph.getNodes()){
+            if (node.getNodeIndex() == indexValue){
+                return node;
+            }
+        }
+        return null;
+    }
+
+    public int indexOf(Node node){
+        return graph.getNodes().indexOf(node);
+    }
+
+    public ArrayList<Edge> getEdges(Node node){
+        ArrayList<Edge> edges = new ArrayList<Edge>();
+        for (Edge edge : graph.getEdges())
+        if (node.getNodeIndex()==edge.getBeginNode()){
+            edges.add(edge);
+        }
+        return edges;
+    }
+
+    public ArrayList<Edge> getEdges(int index){
+        return getEdges(getNode(index));
+    }
+
+    public int getSize(){
+        return numberOfNodes;
     }
 
     public ArrayList<Integer> getColours(){
