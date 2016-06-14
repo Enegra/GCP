@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.utils.FilePicker;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +9,16 @@ import java.util.ArrayList;
  */
 public class Initializer {
 
-    public ArrayList<Specimen> initialize(int populationSize, Graph graph){
+    private Graph graph;
+
+    public Initializer(){
+        graph = new Graph();
+        FilePicker filePicker = new FilePicker();
+        graph.readGraph(filePicker.getFilePath());
+        System.out.println("Graph loaded");
+    }
+
+    public ArrayList<Specimen> initialize(int populationSize){
         ArrayList<Specimen> population = new ArrayList<Specimen>(populationSize);
         for (int i=0; i<populationSize; i++){
             population.add(new Specimen(graph));
@@ -15,7 +26,7 @@ public class Initializer {
         return population;
     }
 
-    public ArrayList<Specimen> initialize(int populationSize, Graph graph, int numberOfColours){
+    public ArrayList<Specimen> initialize(int populationSize, int numberOfColours){
         ArrayList<Specimen> population = new ArrayList<Specimen>(populationSize);
         for (int i=0; i<populationSize; i++){
             population.add(new Specimen(graph, numberOfColours));

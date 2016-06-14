@@ -14,17 +14,20 @@ public class Specimen {
     private ArrayList<Integer> colours;
     private int numberOfColours;
     private int numberOfNodes;
+    private Graph graph;
 
     public Specimen(Graph graph, int numberOfColours){
+        this.graph=graph;
         colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         this.numberOfColours=numberOfColours;
-        this.numberOfNodes=graph.getNumberOfNodes();
+        numberOfNodes=graph.getNumberOfNodes();
     }
 
     public Specimen(Graph graph){
+        this.graph=graph;
         colours = new ArrayList<Integer>(graph.getNumberOfNodes());
-        numberOfColours = getNumberOfColours(graph);
-        this.numberOfNodes=graph.getNumberOfNodes();
+        numberOfColours = getNumberOfColours();
+        numberOfNodes=graph.getNumberOfNodes();
     }
 
     public void colourSpecimen(){
@@ -35,7 +38,7 @@ public class Specimen {
         }
     }
     
-    private int getNumberOfColours(Graph graph){
+    private int getNumberOfColours(){
         ArrayList<Integer> edgeWeights = new ArrayList<Integer>();
         for (Edge edge : graph.getEdges()){
             edgeWeights.add(edge.getWeight());

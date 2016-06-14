@@ -2,16 +2,16 @@ package com.company;
 
 import com.company.utils.FilePicker;
 
+import java.util.ArrayList;
 
 
 public class Main {
 
     public static void main(String[] args){
 
-        Graph graph = new Graph();
-        FilePicker filePicker = new FilePicker();
-        graph.readGraph(filePicker.getFilePath());
-        System.out.println("Graph loaded");
+        Initializer initializer = new Initializer();
+        ArrayList<Specimen> population = initializer.initialize(30);
+        System.out.println("Initialized population of size: " + population.size());
 
     }
 }
