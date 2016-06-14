@@ -27,7 +27,7 @@ public class Evaluator {
             }
             scores.add(errorCount);
         }
-        return null;
+        return scores;
     }
 
 

@@ -13,6 +13,9 @@ public class Main {
         ArrayList<Specimen> population = initializer.initialize(30);
         System.out.println("Initialized population of size: " + population.size());
         System.out.println(population);
+        Evaluator evaluator = new Evaluator();
+        ArrayList<Integer> scores = evaluator.evaluate(population);
+        System.out.println(scores);
 
     }
 }
