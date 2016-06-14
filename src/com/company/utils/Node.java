@@ -30,6 +30,7 @@ public class Node {
         this.colour=colour;
     }
 
+    @Override
     public String toString(){
         return "Node index: " + nodeIndex + ", Node weight: " + nodeWeight;
     }

@@ -12,6 +12,7 @@ public class Main {
         Initializer initializer = new Initializer();
         ArrayList<Specimen> population = initializer.initialize(30);
         System.out.println("Initialized population of size: " + population.size());
+        System.out.println(population);
 
     }
 }

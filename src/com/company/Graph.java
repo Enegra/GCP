@@ -34,7 +34,7 @@ public class Graph {
                     row.add(Integer.parseInt(temporaryArray[1]));
                     row.add(Integer.parseInt(temporaryArray[2]));
                     row.add(Integer.parseInt(temporaryArray[3]));
-                    System.out.println(row);
+//                    System.out.println(row);
                     edges.add(new Edge(row.get(0), row.get(1), row.get(2)));
                     line = reader.readLine();
                 }
@@ -42,7 +42,7 @@ public class Graph {
                     String temporaryArray[] = line.split("\\s+");
                     row.add(Integer.parseInt(temporaryArray[1]));
                     row.add(Integer.parseInt(temporaryArray[2]));
-                    System.out.println(row);
+//                    System.out.println(row);
                     nodes.add(new Node(row.get(0), row.get(1)));
                     line = reader.readLine();
                 }

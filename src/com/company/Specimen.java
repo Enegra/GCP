@@ -21,6 +21,7 @@ public class Specimen {
         colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         this.numberOfColours=numberOfColours;
         numberOfNodes=graph.getNumberOfNodes();
+        colourSpecimen();
     }
 
     public Specimen(Graph graph){
@@ -28,6 +29,7 @@ public class Specimen {
         colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         numberOfColours = getNumberOfColours();
         numberOfNodes=graph.getNumberOfNodes();
+        colourSpecimen();
     }
 
     public void colourSpecimen(){
@@ -56,6 +58,11 @@ public class Specimen {
 
     public ArrayList<Integer> getColours(){
         return colours;
+    }
+
+    @Override
+    public String toString(){
+        return String.valueOf(colours);
     }
 
 }
