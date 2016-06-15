@@ -66,6 +66,12 @@ public class Specimen {
         colours.set(index, colour);
     }
 
+    public void alterColour(int index){
+        Random random = new Random();
+        int colour = random.nextInt(numberOfColours+1);
+        setColour(index, colour);
+    }
+
     public int getColour(int index){
         return colours.get(index);
     }
