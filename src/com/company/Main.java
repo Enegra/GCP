@@ -11,8 +11,8 @@ public class Main {
 
         int maxGenerationNumber = 50;
         int generationsChecked = 10;
-        int populationSize = 40;
-        int tournamentSize = 3;
+        int populationSize = 100;
+        int tournamentSize = 5;
         double crossingProbability = 0.7;
         double mutationProbability = 0.2;
 

@@ -38,10 +38,13 @@ public class Specimen {
         this.numberOfColours = parentOne.numberOfColours;
         this.numberOfNodes = parentOne.numberOfNodes;
         colours = new ArrayList<Integer>(numberOfNodes);
-        for (int i=0; i<numberOfNodes/2; i++){
+        Random random = new Random();
+        double percentage = random.nextDouble();
+        int threshold = (int) (percentage*numberOfNodes);
+        for (int i=0; i<threshold; i++){
             this.colours.add(parentOne.getColour(i));
         }
-        for (int i=numberOfNodes/2; i<numberOfNodes; i++){
+        for (int i=threshold; i<numberOfNodes; i++){
             this.colours.add(parentTwo.getColour(i));
         }
     }
