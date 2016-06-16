@@ -9,12 +9,12 @@ public class Main {
 
     public static void main(String[] args){
 
-        int maxGenerationNumber = 50;
-        int generationsChecked = 10;
+        int maxGenerationNumber = 1000;
+        int generationsChecked = 50;
         int populationSize = 100;
-        int tournamentSize = 5;
+        int tournamentSize = 2;
         double crossingProbability = 0.7;
-        double mutationProbability = 0.2;
+        double mutationProbability = 0.3;
 
         ArrayList<Specimen> population;
         ArrayList<Integer> scores;

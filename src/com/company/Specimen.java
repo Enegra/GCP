@@ -62,7 +62,9 @@ public class Specimen {
         for (Edge edge : graph.getEdges()){
             edgeWeights.add(edge.getWeight());
         }
-        return ValueFinder.findMaximum(edgeWeights)+1;
+        int edgeWeightDependency =  ValueFinder.findMaximum(edgeWeights)+1;
+        int nodeDependency = numberOfNodes;
+        return Math.max(edgeWeightDependency,nodeDependency);
     }
 
     public void setColour(int index, int colour){
