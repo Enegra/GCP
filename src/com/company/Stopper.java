@@ -25,6 +25,7 @@ public class Stopper {
         if (currentGenerationNumber >= numberOfScoresChecked) {
             for (int i = currentGenerationNumber - numberOfScoresChecked; i < currentGenerationNumber-1; i++) {
                 if (generationData.getBestScores().get(i) < generationData.getBestScores().get(i + 1)) {
+                    System.out.println(generationData.getBestScores().get(i) + " " + generationData.getBestScores().get(i + 1));
                     return true;
                 }
             }

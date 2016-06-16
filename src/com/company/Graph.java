@@ -17,7 +17,7 @@ public class Graph {
     private int numberOfEdges;
 
     public void readGraph(File file){
-        BufferedReader reader = null;
+        BufferedReader reader=null;
         try {
             reader = new BufferedReader(new FileReader(file));
             String line = reader.readLine();
@@ -50,7 +50,6 @@ public class Graph {
                     line = reader.readLine();
                 }
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

@@ -1,6 +1,5 @@
 package com.company.data;
 
-import com.company.Selector;
 import com.company.Specimen;
 
 import java.util.ArrayList;
