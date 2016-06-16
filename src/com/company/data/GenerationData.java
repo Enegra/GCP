@@ -30,17 +30,19 @@ public class GenerationData {
 
     public void setBestSpecimen() {
         int bestIndex = scoreData.getAllScores().get(scoreData.getAllScores().size() - 1).indexOf(scoreData.getBestScores().get(scoreData.getBestScores().size() - 1));
-        System.out.println(bestIndex);
         Specimen bestOfGeneration = generations.get(generations.size() - 1).get(bestIndex);
         int score = scoreData.getAllScores().get(scoreData.getAllScores().size() - 1).get(bestIndex);
         if (bestSpecimen == null) {
             bestSpecimen = bestOfGeneration;
             bestScore = score;
         } else {
-            if (score > bestScore){
+            if (score < bestScore){
                 bestSpecimen = bestOfGeneration;
+                bestScore = score;
             }
         }
+        System.out.println(bestSpecimen);
+        System.out.println(bestScore);
     }
 
     public int getGenerationNumber() {
@@ -53,5 +55,9 @@ public class GenerationData {
 
     public int getMaxGenerationNumber() {
         return maxGenerationNumber;
+    }
+
+    public ArrayList<Integer> getBestScores(){
+        return scoreData.getBestScores();
     }
 }

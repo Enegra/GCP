@@ -15,7 +15,7 @@ public class Initializer {
         graph = new Graph();
         FilePicker filePicker = new FilePicker();
         graph.readGraph(filePicker.getFilePath());
-        System.out.println("Graph loaded");
+//        System.out.println("Graph loaded");
     }
 
     public ArrayList<Specimen> initialize(int populationSize){
