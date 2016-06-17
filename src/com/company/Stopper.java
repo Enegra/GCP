@@ -1,7 +1,6 @@
 package com.company;
 
 import com.company.data.GenerationData;
-import com.company.data.ScoreData;
 
 /**
  * Created by agnie on 6/16/2016.
@@ -29,7 +28,6 @@ public class Stopper {
                 if (generationData.getBestScores().get(i+1) < generationData.getBestScores().get(i)) {
                     isNotImproving=false;
                 }
-                System.out.println(generationData.getBestScores().get(i) + " " + generationData.getBestScores().get(i + 1));
             }
             return isNotImproving;
         }

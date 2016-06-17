@@ -15,7 +15,6 @@ public class Crosser {
             int parentTwo = random.nextInt(population.size());
             if (random.nextDouble() <= crossingProbability) {
                 Specimen newSpecimen = new Specimen(population.get(parentOne), population.get(parentTwo));
-                //// TODO: 6/14/2016 dodać losowe czerpanie genów
                 population.add(newSpecimen);
             }
         }

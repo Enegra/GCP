@@ -9,10 +9,10 @@ public class Main {
 
     public static void main(String[] args){
 
-        int maxGenerationNumber = 1000;
-        int generationsChecked = 50;
-        int populationSize = 100;
-        int tournamentSize = 2;
+        int maxGenerationNumber = 100000;
+        int generationsChecked = 20;
+        int populationSize = 1000;
+        int tournamentSize = 3;
         double crossingProbability = 0.7;
         double mutationProbability = 0.3;
 
