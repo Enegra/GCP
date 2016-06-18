@@ -69,8 +69,6 @@ public class Graph {
         }
         edgeDensity = calculateEdgeDensity();
         maxEdgeWeight = calculateMaxEdgeWeight();
-        System.out.println(edgeDensity);
-        System.out.println(maxEdgeWeight);
     }
 
     public int getNumberOfNodes(){

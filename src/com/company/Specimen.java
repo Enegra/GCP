@@ -66,8 +66,6 @@ public class Specimen {
         return Math.max(maxEdgeWeight+1,edgeDensity+1);
     }
 
-
-
     public void setColour(int index, int colour){
         colours.set(index, colour);
     }

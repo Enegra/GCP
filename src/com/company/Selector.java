@@ -31,6 +31,14 @@ public class Selector {
         return pool.get(tournamentScores.indexOf(bestIndex));
     }
 
+    private Specimen rouletteWheelSelect(ArrayList<Specimen> population, ArrayList<Integer> scores){
+        int totalErrorCount=0;
+        for (int score : scores){
+            totalErrorCount = totalErrorCount + score;
+        }
+        return null;
+    }
+
 }
 
 
