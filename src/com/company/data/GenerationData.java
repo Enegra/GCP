@@ -40,8 +40,14 @@ public class GenerationData {
                 bestScore = score;
             }
         }
-        System.out.println(bestSpecimen);
-        System.out.println(bestScore);
+//        System.out.println(bestSpecimen);
+//        System.out.println(bestScore);
+    }
+
+
+
+    public ScoreData getScoreData() {
+        return scoreData;
     }
 
     public int getGenerationNumber() {

@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.data.GenerationData;
+import com.company.utils.ScoreChart;
 
 import java.util.ArrayList;
 
@@ -9,9 +10,9 @@ public class Main {
 
     public static void main(String[] args){
 
-        int maxGenerationNumber = 100000;
-        int generationsChecked = 20;
-        int populationSize = 1000;
+        int maxGenerationNumber = 50;
+        int generationsChecked = 10;
+        int populationSize = 100;
         int tournamentSize = 3;
         double crossingProbability = 0.7;
         double mutationProbability = 0.3;
@@ -39,6 +40,9 @@ public class Main {
             generationData.nextGeneration();
 
         }
+
+        ScoreChart scoreChart = new ScoreChart(generationData.getScoreData());
+        System.out.println(generationData.getScoreData().getAverageScores());
 
 
     }
