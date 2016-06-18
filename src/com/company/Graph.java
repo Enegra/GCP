@@ -116,8 +116,7 @@ public class Graph {
             ArrayList<Edge> edgesForNode = getEdges(i);
             edgeDensity.add(edgesForNode.size());
         }
-        int density = ValueFinder.findMaximum(edgeDensity);
-        return density;
+        return ValueFinder.findMaximum(edgeDensity);
     }
 
     public int getEdgeDensity() {
