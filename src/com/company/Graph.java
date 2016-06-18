@@ -2,6 +2,7 @@ package com.company;
 
 import com.company.utils.Edge;
 import com.company.utils.Node;
+import com.company.utils.ValueFinder;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -15,6 +16,8 @@ public class Graph {
     private ArrayList<Edge> edges = new ArrayList<Edge>();
     private int numberOfNodes;
     private int numberOfEdges;
+    private int edgeDensity;
+    private int maxEdgeWeight;
 
     public void readGraph(File file){
         BufferedReader reader=null;
@@ -64,6 +67,10 @@ public class Graph {
                 }
             }
         }
+        edgeDensity = calculateEdgeDensity();
+        maxEdgeWeight = calculateMaxEdgeWeight();
+        System.out.println(edgeDensity);
+        System.out.println(maxEdgeWeight);
     }
 
     public int getNumberOfNodes(){
@@ -80,6 +87,45 @@ public class Graph {
 
     public ArrayList<Node> getNodes(){
         return nodes;
+    }
+
+    public ArrayList<Edge> getEdges(Node node){
+        ArrayList<Edge> edgeForNode = new ArrayList<Edge>();
+        for (Edge edge : edges)
+            if (node.getNodeIndex()==edge.getBeginNode()){
+                edgeForNode.add(edge);
+            }
+        return edgeForNode;
+    }
+
+    public ArrayList<Edge> getEdges(int index){
+        return getEdges(nodes.get(index));
+    }
+
+    private int calculateMaxEdgeWeight(){
+        ArrayList<Integer> edgeWeights = new ArrayList<Integer>();
+        for (Edge edge : edges){
+            edgeWeights.add(edge.getWeight());
+        }
+        return ValueFinder.findMaximum(edgeWeights)+1;
+    }
+
+    private int calculateEdgeDensity(){
+        ArrayList<Integer> edgeDensity = new ArrayList<Integer>();
+        for (int i=0; i<numberOfNodes; i++){
+            ArrayList<Edge> edgesForNode = getEdges(i);
+            edgeDensity.add(edgesForNode.size());
+        }
+        int density = ValueFinder.findMaximum(edgeDensity);
+        return density;
+    }
+
+    public int getEdgeDensity() {
+        return edgeDensity;
+    }
+
+    public int getMaxEdgeWeight() {
+        return maxEdgeWeight;
     }
 
 }

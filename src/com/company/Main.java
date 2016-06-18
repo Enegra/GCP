@@ -10,11 +10,11 @@ public class Main {
 
     public static void main(String[] args){
 
-        int maxGenerationNumber = 50;
-        int generationsChecked = 10;
-        int populationSize = 100;
+        int maxGenerationNumber = 100;
+        int generationsChecked = 5;
+        int populationSize = 50;
         int tournamentSize = 3;
-        double crossingProbability = 0.7;
+        double crossingProbability = 0.8;
         double mutationProbability = 0.3;
 
         ArrayList<Specimen> population;
@@ -42,7 +42,7 @@ public class Main {
         }
 
         ScoreChart scoreChart = new ScoreChart(generationData.getScoreData());
-        System.out.println(generationData.getScoreData().getAverageScores());
+        System.out.println(generationData.getBestSpecimen());
 
 
     }

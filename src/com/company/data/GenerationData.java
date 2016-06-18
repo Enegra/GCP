@@ -65,4 +65,8 @@ public class GenerationData {
     public ArrayList<Integer> getBestScores(){
         return scoreData.getBestScores();
     }
+
+    public Specimen getBestSpecimen(){
+        return bestSpecimen;
+    }
 }

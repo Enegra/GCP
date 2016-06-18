@@ -2,7 +2,6 @@ package com.company;
 
 import com.company.utils.Edge;
 import com.company.utils.Node;
-import com.company.utils.ValueFinder;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,19 +15,23 @@ public class Specimen {
     private int numberOfColours;
     private int numberOfNodes;
     private Graph graph;
+    private int maxEdgeWeight;
+    private int edgeDensity;
 
     public Specimen(Graph graph, int numberOfColours){
         this.graph=graph;
         this.numberOfColours=numberOfColours;
-        numberOfNodes=graph.getNumberOfNodes();
+        this.numberOfNodes=graph.getNumberOfNodes();
         colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         colourSpecimen();
     }
 
     public Specimen(Graph graph){
         this.graph=graph;
-        numberOfColours = getNumberOfColours();
         numberOfNodes=graph.getNumberOfNodes();
+        maxEdgeWeight = graph.getMaxEdgeWeight();
+        edgeDensity = graph.getEdgeDensity();
+        numberOfColours = getNumberOfColours();
         colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         colourSpecimen();
     }
@@ -56,16 +59,14 @@ public class Specimen {
             colours.add(colour);
         }
     }
+
+
     
     private int getNumberOfColours(){
-        ArrayList<Integer> edgeWeights = new ArrayList<Integer>();
-        for (Edge edge : graph.getEdges()){
-            edgeWeights.add(edge.getWeight());
-        }
-        int edgeWeightDependency =  ValueFinder.findMaximum(edgeWeights)+1;
-        int nodeDependency = numberOfNodes;
-        return Math.max(edgeWeightDependency,nodeDependency);
+        return Math.max(maxEdgeWeight+1,edgeDensity+1);
     }
+
+
 
     public void setColour(int index, int colour){
         colours.set(index, colour);
@@ -99,19 +100,6 @@ public class Specimen {
         return graph.getNodes().indexOf(node);
     }
 
-    public ArrayList<Edge> getEdges(Node node){
-        ArrayList<Edge> edges = new ArrayList<Edge>();
-        for (Edge edge : graph.getEdges())
-        if (node.getNodeIndex()==edge.getBeginNode()){
-            edges.add(edge);
-        }
-        return edges;
-    }
-
-    public ArrayList<Edge> getEdges(int index){
-        return getEdges(getNode(index));
-    }
-
     public int getSize(){
         return numberOfNodes;
     }
@@ -123,6 +111,10 @@ public class Specimen {
     @Override
     public String toString(){
         return String.valueOf(colours);
+    }
+
+    public ArrayList<Edge> getEdges(int index){
+        return graph.getEdges(index);
     }
 
 }
