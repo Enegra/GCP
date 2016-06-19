@@ -9,29 +9,29 @@ public class Node {
     private int nodeWeight;
     private int colour;
 
-    public Node(int nodeIndex, int nodeWeight){
-        this.nodeIndex=nodeIndex;
-        this.nodeWeight=nodeWeight;
+    public Node(int nodeIndex, int nodeWeight) {
+        this.nodeIndex = nodeIndex;
+        this.nodeWeight = nodeWeight;
     }
 
-    public int getNodeIndex(){
+    public int getNodeIndex() {
         return nodeIndex;
     }
 
-    public int getNodeWeight(){
+    public int getNodeWeight() {
         return nodeWeight;
     }
 
-    public int getColour(){
+    public int getColour() {
         return colour;
     }
 
-    public void setColour(int colour){
-        this.colour=colour;
+    public void setColour(int colour) {
+        this.colour = colour;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Node index: " + nodeIndex + ", Node weight: " + nodeWeight;
     }
 }

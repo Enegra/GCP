@@ -8,27 +8,27 @@ public class Edge {
     private int endNode;
     private int weight;
 
-    public Edge(int beginNode, int endNode, int weight){
-        this.beginNode=beginNode;
-        this.endNode=endNode;
-        this.weight=weight;
+    public Edge(int beginNode, int endNode, int weight) {
+        this.beginNode = beginNode;
+        this.endNode = endNode;
+        this.weight = weight;
     }
 
-    public int getBeginNode(){
+    public int getBeginNode() {
         return beginNode;
     }
 
-    public int getEndNode(){
+    public int getEndNode() {
         return endNode;
     }
 
-    public int getWeight(){
+    public int getWeight() {
         return weight;
     }
 
 
     @Override
-    public String toString(){
+    public String toString() {
         return "Begin node: " + beginNode + ", End node: " + endNode + ", Weight: " + weight;
     }
 }

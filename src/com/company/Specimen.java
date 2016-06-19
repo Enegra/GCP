@@ -18,17 +18,17 @@ public class Specimen {
     private int maxEdgeWeight;
     private int edgeDensity;
 
-    public Specimen(Graph graph, int numberOfColours){
-        this.graph=graph;
-        this.numberOfColours=numberOfColours;
-        this.numberOfNodes=graph.getNumberOfNodes();
+    public Specimen(Graph graph, int numberOfColours) {
+        this.graph = graph;
+        this.numberOfColours = numberOfColours;
+        this.numberOfNodes = graph.getNumberOfNodes();
         colours = new ArrayList<Integer>(graph.getNumberOfNodes());
         colourSpecimen();
     }
 
-    public Specimen(Graph graph){
-        this.graph=graph;
-        numberOfNodes=graph.getNumberOfNodes();
+    public Specimen(Graph graph) {
+        this.graph = graph;
+        numberOfNodes = graph.getNumberOfNodes();
         maxEdgeWeight = graph.getMaxEdgeWeight();
         edgeDensity = graph.getEdgeDensity();
         numberOfColours = getNumberOfColours();
@@ -36,82 +36,80 @@ public class Specimen {
         colourSpecimen();
     }
 
-    public Specimen(Specimen parentOne, Specimen parentTwo){
+    public Specimen(Specimen parentOne, Specimen parentTwo) {
         this.graph = parentOne.graph;
         this.numberOfColours = parentOne.numberOfColours;
         this.numberOfNodes = parentOne.numberOfNodes;
         colours = new ArrayList<Integer>(numberOfNodes);
         Random random = new Random();
         double percentage = random.nextDouble();
-        int threshold = (int) (percentage*numberOfNodes);
-        for (int i=0; i<threshold; i++){
+        int threshold = (int) (percentage * numberOfNodes);
+        for (int i = 0; i < threshold; i++) {
             this.colours.add(parentOne.getColour(i));
         }
-        for (int i=threshold; i<numberOfNodes; i++){
+        for (int i = threshold; i < numberOfNodes; i++) {
             this.colours.add(parentTwo.getColour(i));
         }
     }
 
-    public void colourSpecimen(){
-        for (int i=0; i<numberOfNodes; i++){
+    public void colourSpecimen() {
+        for (int i = 0; i < numberOfNodes; i++) {
             Random random = new Random();
-            int colour = random.nextInt(numberOfColours+1);
+            int colour = random.nextInt(numberOfColours + 1);
             colours.add(colour);
         }
     }
 
 
-    
-    private int getNumberOfColours(){
-        return Math.max(maxEdgeWeight+1,edgeDensity+1);
+    private int getNumberOfColours() {
+        return Math.max(maxEdgeWeight + 1, edgeDensity + 1);
     }
 
-    public void setColour(int index, int colour){
+    public void setColour(int index, int colour) {
         colours.set(index, colour);
     }
 
-    public void alterColour(int index){
+    public void alterColour(int index) {
         Random random = new Random();
-        int colour = random.nextInt(numberOfColours+1);
+        int colour = random.nextInt(numberOfColours + 1);
         setColour(index, colour);
     }
 
-    public int getColour(int index){
+    public int getColour(int index) {
         return colours.get(index);
     }
 
-    public Node getNode(int index)
-    {
+    public Node getNode(int index) {
         return graph.getNodes().get(index);
     }
 
-    public Node findNode(int indexValue){
-        for (Node node : graph.getNodes()){
-            if (node.getNodeIndex() == indexValue){
+    public Node findNode(int indexValue) {
+        for (Node node : graph.getNodes()) {
+            if (node.getNodeIndex() == indexValue) {
                 return node;
             }
         }
         return null;
     }
 
-    public int indexOf(Node node){
+    public int indexOf(Node node) {
         return graph.getNodes().indexOf(node);
     }
 
-    public int getSize(){
+    public int getSize() {
         return numberOfNodes;
     }
 
-    public ArrayList<Integer> getColours(){
+    public ArrayList<Integer> getColours() {
         return colours;
     }
 
     @Override
-    public String toString(){
+    public String toString() {
         return String.valueOf(colours);
     }
 
-    public ArrayList<Edge> getEdges(int index){
+    public ArrayList<Edge> getEdges(int index) {
         return graph.getEdges(index);
     }
 

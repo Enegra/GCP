@@ -8,9 +8,9 @@ import java.util.Random;
  */
 public class Crosser {
 
-    public void cross(ArrayList<Specimen> population, int desiredPopulationSize, double crossingProbability){
+    public void cross(ArrayList<Specimen> population, int desiredPopulationSize, double crossingProbability) {
         Random random = new Random();
-        while (population.size() < desiredPopulationSize){
+        while (population.size() < desiredPopulationSize) {
             int parentOne = random.nextInt(population.size());
             int parentTwo = random.nextInt(population.size());
             if (random.nextDouble() <= crossingProbability) {

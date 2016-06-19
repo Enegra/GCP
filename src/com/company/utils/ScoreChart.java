@@ -14,11 +14,11 @@ import java.awt.*;
 /**
  * Created by agnie on 6/16/2016.
  */
-public class ScoreChart extends JFrame{
+public class ScoreChart extends JFrame {
 
     ScoreData scoreData;
 
-    public ScoreChart(ScoreData scoreData){
+    public ScoreChart(ScoreData scoreData) {
         super("Graph Colouring Problem");
         this.scoreData = scoreData;
         JPanel chartPanel = createChartPanel();
@@ -29,12 +29,12 @@ public class ScoreChart extends JFrame{
         setVisible(true);
     }
 
-    private XYDataset createDataset(){
+    private XYDataset createDataset() {
         XYSeriesCollection dataset = new XYSeriesCollection();
         XYSeries bestScores = new XYSeries("Best scores");
         XYSeries averageScores = new XYSeries("Average scores");
         XYSeries worstScores = new XYSeries("Worst scores");
-        for (int i=0; i<scoreData.getBestScores().size(); i++){
+        for (int i = 0; i < scoreData.getBestScores().size(); i++) {
             bestScores.add(i, scoreData.getBestScores().get(i));
             averageScores.add(i, scoreData.getAverageScores().get(i));
             worstScores.add(i, scoreData.getWorstScores().get(i));
@@ -45,11 +45,11 @@ public class ScoreChart extends JFrame{
         return dataset;
     }
 
-    private JPanel createChartPanel(){
+    private JPanel createChartPanel() {
         String chartTitle = "Number of errors in solutions developed by genetic algorithms";
         String xAxisLabel = "Generation";
         String yAxisLabel = "Error count";
-        XYDataset dataset =createDataset();
+        XYDataset dataset = createDataset();
         JFreeChart chart = ChartFactory.createXYLineChart(chartTitle, xAxisLabel, yAxisLabel, dataset);
         return new ChartPanel(chart);
     }

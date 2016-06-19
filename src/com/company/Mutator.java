@@ -8,11 +8,11 @@ import java.util.Random;
  */
 public class Mutator {
 
-    public void mutate(ArrayList<Specimen> population, double mutationProbability){
-        for (Specimen specimen : population){
-            for (int i=0; i<specimen.getSize(); i++){
+    public void mutate(ArrayList<Specimen> population, double mutationProbability) {
+        for (Specimen specimen : population) {
+            for (int i = 0; i < specimen.getSize(); i++) {
                 Random random = new Random();
-                if (random.nextDouble()<=mutationProbability){
+                if (random.nextDouble() <= mutationProbability) {
                     specimen.alterColour(i);
                 }
             }

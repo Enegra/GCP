@@ -20,7 +20,7 @@ public class Evaluator {
                         int nodeColour = specimen.getColour(i);
                         int neighbourColour = specimen.getColour(specimen.indexOf(specimen.findNode(edge.getEndNode())));
                         if (Math.abs(nodeColour - neighbourColour) < edge.getWeight()) {
-                            errorCount= errorCount+ (edge.getWeight() - Math.abs(nodeColour-neighbourColour));
+                            errorCount = errorCount + (edge.getWeight() - Math.abs(nodeColour - neighbourColour));
                         }
                     }
                 }

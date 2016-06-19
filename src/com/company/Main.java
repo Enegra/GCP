@@ -8,10 +8,10 @@ import java.util.ArrayList;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         int maxGenerationNumber = 100;
-        int generationsChecked = 5;
+        int generationsChecked = 10;
         int populationSize = 50;
         int tournamentSize = 3;
         double crossingProbability = 0.8;
@@ -30,10 +30,10 @@ public class Main {
 
         population = initializer.initialize(populationSize);
 
-        while (!stopper.stopCondition()){
+        while (!stopper.stopCondition()) {
             scores = evaluator.evaluate(population);
-            generationData.saveGenerationData(population,scores);
-            population = selector.select(population, scores, tournamentSize);
+            generationData.saveGenerationData(population, scores);
+            population = selector.select(population, scores);
             crosser.cross(population, populationSize, crossingProbability);
             mutator.mutate(population, mutationProbability);
             generationData.setBestSpecimen();

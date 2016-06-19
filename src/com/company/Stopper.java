@@ -22,11 +22,11 @@ public class Stopper {
             return true;
         }
         if (currentGenerationNumber >= numberOfScoresChecked) {
-            boolean isNotImproving=true;
+            boolean isNotImproving = true;
 //            System.out.println("Current generation: " + currentGenerationNumber);
-            for (int i = currentGenerationNumber-numberOfScoresChecked; i < currentGenerationNumber-1; i++) {
-                if (generationData.getBestScores().get(i+1) < generationData.getBestScores().get(i)) {
-                    isNotImproving=false;
+            for (int i = currentGenerationNumber - numberOfScoresChecked; i < currentGenerationNumber - 1; i++) {
+                if (generationData.getBestScores().get(i + 1) < generationData.getBestScores().get(i)) {
+                    isNotImproving = false;
                 }
             }
             return isNotImproving;
