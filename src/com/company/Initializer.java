@@ -21,7 +21,7 @@ public class Initializer {
     public ArrayList<Specimen> initialize(int populationSize) {
         ArrayList<Specimen> population = new ArrayList<Specimen>(populationSize);
         for (int i = 0; i < populationSize; i++) {
-            population.add(new Specimen(graph));
+            population.add(new Specimen(graph, 25));
         }
         return population;
     }

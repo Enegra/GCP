@@ -68,4 +68,8 @@ public class GenerationData {
     public Specimen getBestSpecimen() {
         return bestSpecimen;
     }
+
+    public int getBestScore(){
+        return bestScore;
+    }
 }

@@ -10,12 +10,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int maxGenerationNumber = 100;
+        int maxGenerationNumber = 1000;
         int generationsChecked = 10;
         int populationSize = 50;
         int tournamentSize = 3;
         double crossingProbability = 0.8;
-        double mutationProbability = 0.3;
+        double mutationProbability = 0.2;
 
         ArrayList<Specimen> population;
         ArrayList<Integer> scores;
@@ -33,10 +33,10 @@ public class Main {
         while (!stopper.stopCondition()) {
             scores = evaluator.evaluate(population);
             generationData.saveGenerationData(population, scores);
+            generationData.setBestSpecimen();
             population = selector.select(population, scores);
             crosser.cross(population, populationSize, crossingProbability);
             mutator.mutate(population, mutationProbability);
-            generationData.setBestSpecimen();
             generationData.nextGeneration();
 
         }
