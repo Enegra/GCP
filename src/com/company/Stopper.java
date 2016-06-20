@@ -21,11 +21,15 @@ public class Stopper {
         if (currentGenerationNumber >= maxGenerationNumber) {
             return true;
         }
+        if (currentGenerationNumber>0 && generationData.getBestScore()==0){
+            return true;
+        }
         if (currentGenerationNumber >= numberOfScoresChecked) {
             boolean isNotImproving = true;
 //            System.out.println("Current generation: " + currentGenerationNumber);
             for (int i = currentGenerationNumber - numberOfScoresChecked; i < currentGenerationNumber - 1; i++) {
-                if (generationData.getBestScores().get(i + 1) < generationData.getBestScores().get(i)) {
+                if (generationData.getBestScores().get(i + 1) <= generationData.getBestScores().get(i)) {
+//                if (generationData.getBestScores().get(i) <= generationData.getHistoricalBestScores().get(currentGenerationNumber - numberOfScoresChecked)){
                     isNotImproving = false;
                 }
             }

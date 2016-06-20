@@ -14,12 +14,14 @@ public class GenerationData {
     private ScoreData scoreData;
     private Specimen bestSpecimen;
     private int bestScore;
+//    private ArrayList<Integer> historicalBestScores;
 
     public GenerationData(int maxGenerationNumber) {
         this.maxGenerationNumber = maxGenerationNumber;
         scoreData = new ScoreData();
         generations = new ArrayList<ArrayList<Specimen>>();
         bestSpecimen = null;
+//        historicalBestScores = new ArrayList<Integer>();
     }
 
     public void saveGenerationData(ArrayList<Specimen> population, ArrayList<Integer> scores) {
@@ -40,6 +42,7 @@ public class GenerationData {
                 bestScore = score;
             }
         }
+//        historicalBestScores.add(bestScore);
 //        System.out.println(bestSpecimen);
 //        System.out.println(bestScore);
     }
@@ -72,4 +75,8 @@ public class GenerationData {
     public int getBestScore(){
         return bestScore;
     }
+
+//    public ArrayList<Integer> getHistoricalBestScores(){
+//        return historicalBestScores;
+//    }
 }

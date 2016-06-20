@@ -53,6 +53,9 @@ public class Specimen {
     }
 
     public void colourSpecimen() {
+        if (colours!=null){
+            colours.clear();
+        }
         for (int i = 0; i < numberOfNodes; i++) {
             Random random = new Random();
             int colour = random.nextInt(numberOfColours + 1);
