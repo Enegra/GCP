@@ -64,7 +64,9 @@ public class Graph {
             }
         }
         edgeDensity = calculateEdgeDensity();
+        System.out.println(edgeDensity);
         maxEdgeWeight = calculateMaxEdgeWeight();
+        System.out.println(maxEdgeWeight);
     }
 
     public int getNumberOfNodes() {
@@ -99,7 +101,9 @@ public class Graph {
     private int calculateMaxEdgeWeight() {
         ArrayList<Integer> edgeWeights = new ArrayList<Integer>();
         for (Edge edge : edges) {
-            edgeWeights.add(edge.getWeight());
+            if (edge.getBeginNode()!=edge.getEndNode()){
+                edgeWeights.add(edge.getWeight());
+            }
         }
         return ValueFinder.findMaximum(edgeWeights) + 1;
     }
